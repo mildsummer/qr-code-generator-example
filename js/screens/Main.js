@@ -1,8 +1,8 @@
 import React from "react";
 import { TouchableWithoutFeedback, View, Text, Keyboard } from "react-native";
 import { Input, Button } from "react-native-elements";
-import Icon from 'react-native-vector-icons/AntDesign';
-import styles, {colors} from '../styles';
+import Icon from "react-native-vector-icons/AntDesign";
+import styles, { colors } from "../styles";
 
 export default class Main extends React.Component {
   state = {
@@ -12,45 +12,49 @@ export default class Main extends React.Component {
   toResult = () => {
     const { value } = this.state;
     const { navigation } = this.props;
-    navigation.navigate({ routeName: 'Result', params: { value } })
+    navigation.navigate({ routeName: "Result", params: { value } });
   };
 
   clear = () => {
-    this.onChange('');
+    this.onChange("");
   };
 
-  onChange = (value) => {
+  onChange = value => {
     this.setState({ value });
   };
 
   render() {
     const { value } = this.state;
     return (
-      <TouchableWithoutFeedback
-        onPress={Keyboard.dismiss}
-        accessible={false}
-      >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={styles.main.container}>
           <View style={styles.main.inner}>
             <Text style={styles.main.title}>
               QRコードにしたい文字列やURLなどを
-              {'\n'}
+              {"\n"}
               入力してください
             </Text>
             <View style={styles.main.inputWrapper}>
               <Input
                 value={value}
                 onChangeText={this.onChange}
-                autoCapitalize='none'
-                multiline = {true}
-                numberOfLines = {4}
+                autoCapitalize="none"
+                multiline={true}
+                numberOfLines={4}
                 inputStyle={styles.main.input}
                 inputContainerStyle={styles.main.inputContainer}
                 containerStyle={styles.main.inputInputContainer}
               />
               <Button
                 disabled={!value}
-                icon={<Icon name='close' size={17} color={colors.white} style={styles.main.resetButtonIcon} />}
+                icon={
+                  <Icon
+                    name="close"
+                    size={17}
+                    color={colors.white}
+                    style={styles.main.resetButtonIcon}
+                  />
+                }
                 buttonStyle={styles.main.resetButton}
                 containerStyle={styles.main.resetButtonContainer}
                 disabledStyle={styles.main.resetButtonDisabled}
@@ -60,6 +64,7 @@ export default class Main extends React.Component {
           </View>
           <Button
             title="OK"
+            size="large"
             disabled={!value}
             onPress={this.toResult}
             buttonStyle={styles.main.button}

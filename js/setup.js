@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import Main from './screens/Main';
-import Result from './screens/Result';
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
+import Main from "./screens/Main";
+import Result from "./screens/Result";
 
-const AppContainer = createAppContainer(createStackNavigator(
-  {
+const AppContainer = createAppContainer(
+  createStackNavigator({
     Main: {
       screen: Main,
       navigationOptions: {
@@ -14,17 +14,15 @@ const AppContainer = createAppContainer(createStackNavigator(
     },
     Result: {
       screen: Result,
-      navigationOptions:  {
+      navigationOptions: {
         header: null
       }
     }
-  }
-));
+  })
+);
 
 export default class App extends Component {
   render() {
-    return (
-      <AppContainer />
-    );
+    return <AppContainer />;
   }
 }
