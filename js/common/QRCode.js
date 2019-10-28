@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { View, Image, ActivityIndicator } from "react-native";
 import qrcode from "qrcode-generator";
-import { colors } from '../styles';
+import "./qrcode_SJIS";
+import { colors } from "../styles";
 
 export default class QRCode extends React.PureComponent {
   constructor(props) {
@@ -65,12 +66,12 @@ export default class QRCode extends React.PureComponent {
             size="large"
             color={colors.accent}
             style={{
-              position: 'absolute',
-              width: '100%',
-              height: '100%',
+              position: "absolute",
+              width: "100%",
+              height: "100%",
               top: 0,
               left: 0,
-              backgroundColor: 'rgba(255, 255, 255, 0.5)'
+              backgroundColor: "rgba(255, 255, 255, 0.5)"
             }}
           />
         )}
