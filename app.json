@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "QRコード",
+    "name": "QRコード作成",
     "slug": "qr-code-generator",
     "privacy": "public",
     "sdkVersion": "35.0.0",
@@ -24,7 +24,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "qr.code.generator.nodokayamamoto.com"
     }
   }
 }

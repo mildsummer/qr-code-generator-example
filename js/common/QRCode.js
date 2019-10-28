@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Image } from "react-native";
+import { View, Image, ActivityIndicator } from "react-native";
 import qrcode from "qrcode-generator";
+import { colors } from '../styles';
 
 export default class QRCode extends React.PureComponent {
   constructor(props) {
@@ -49,15 +50,31 @@ export default class QRCode extends React.PureComponent {
     }
     const uri = QRCode.createDataURL(calculatedCellSize, margin);
     return (
-      <Image
-        key={uri}
-        onLayout={this.onLayout}
-        style={Object.assign({}, style, {
-          width: size,
-          aspectRatio: 1
-        })}
-        source={{ uri }}
-      />
+      <View>
+        <Image
+          key={uri}
+          onLayout={this.onLayout}
+          style={Object.assign({}, style, {
+            width: size,
+            aspectRatio: 1
+          })}
+          source={{ uri }}
+        />
+        {this.state.size ? null : (
+          <ActivityIndicator
+            size="large"
+            color={colors.accent}
+            style={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              top: 0,
+              left: 0,
+              backgroundColor: 'rgba(255, 255, 255, 0.5)'
+            }}
+          />
+        )}
+      </View>
     );
   }
 }

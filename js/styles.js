@@ -35,6 +35,7 @@ export default {
     },
     input: {
       height: "100%",
+      maxWidth: 500,
       color: colors.white,
       borderBottomColor: colors.white
     },
